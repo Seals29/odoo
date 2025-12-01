@@ -5,8 +5,11 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <search>
+
                 <field name="name"/>
+                <field name="property_type_id"/>
                 <field name="postcode"/>
+                <field name="tag_ids" />
                 <field name="expected_price"/>
                 <field name="bedrooms"/>
                 <field name="living_area"/>
@@ -27,7 +30,10 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <tree>
+            <!-- sensitive case -->
                 <field name="name"/>
+                <field name="tag_ids"/>
+                <field name="property_type_id"/>
                 <field name="description"/>
                 <field name="living_area"/>
                 <field name="facades"/>
@@ -43,7 +49,54 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form>
-    <sheet>
+            <sheet>
+                <div class="oe_title">
+                    <h1> 
+                        <field name="name"/> 
+                    </h1>
+                </div>
+                <group >
+                    <group>
+                        <field name="tag_ids"/>
+                        <field name="property_type_id"/>
+                        <field name="postcode"/>
+                        <field name="date_availability"/>
+                        <field name="state" groups="base.group_no_one"/>
+                    </group>
+                     <group>
+                        <field name="expected_price"/>
+                        <field name="selling_price"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <group>
+                            <field name="description"/>
+                            <field name="bedrooms"/>
+                            <field name="living_area"/>
+                            <field name="facades"/>
+                            <field name="garage"/>
+                            <field name="garden"/>
+                            <field name="garden_area"/>
+                            <field name="garden_orientation"/>
+                        </group>
+                    </page>
+                    <page string="Active">
+                        <group>
+                            <field name="active" />
+                        </group>  
+                    </page>
+                     <page string="Other Info">
+                        <group>
+                            <field name="salesman_id" />
+                            <field name="buyer_id" />
+                        </group>  
+                    </page>
+                </notebook>
+
+            </sheet>
+
+    <!-- <sheet>
         <group>
             <field name="name"/>
             <field name="description"/>
@@ -52,10 +105,12 @@
         <notebook>
             <page string="Details">
                 <group>
+                    <field name="property_type_id" placeholder="78391"/>
+                    <field name="postcode" placeholder="78391"/>
                     <field name="living_area"/>
                     <field name="facades"/>
                     <field name="garden_area"/>
-                    <field name="postcode" placeholder="78391"/>
+
                 </group>
             </page>
 
@@ -75,7 +130,7 @@
                 </group>
             </page>
         </notebook>
-    </sheet>
+    </sheet> -->
 </form>
 
 
