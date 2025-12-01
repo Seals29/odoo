@@ -81,6 +81,11 @@
                             <field name="garden_orientation"/>
                         </group>
                     </page>
+                    <page string="Offers">
+                        <group>
+                            <field name="offer_ids" />
+                        </group>  
+                    </page>
                     <page string="Active">
                         <group>
                             <field name="active" />
