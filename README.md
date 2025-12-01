@@ -83,6 +83,8 @@ module
 
 
 ## Chapter 8: Computed Fields And Onchanges
+- Computed Fields  
+- On Changes 
 
 ## Chapter 9: Ready For Some Action?
 
