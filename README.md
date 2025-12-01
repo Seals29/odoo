@@ -87,8 +87,12 @@ module
 - On Changes 
 
 ## Chapter 9: Ready For Some Action?
+- Object Type
+- Action Type
 
 ## Chapter 10: Constraints
+- SQL Constraints
+- Python Constraints
 
 ## Chapter 11: Add The Sprinkles
 
