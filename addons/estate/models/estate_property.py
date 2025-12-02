@@ -45,10 +45,6 @@ class EstateProperty(models.Model):
     total_area = fields.Float(compute="_compute_total_area", string="Total Area (sqm)")
     best_price= fields.Float(compute="_compute_best_price", string="Best Offer")
 
-    # _sql_constraints= [
-    #     ('check_selling_price_positive', 'CHECK(selling_price > 0 )','The selling price be positive'),
-    #     ('check_expected_price_positive', 'CHECK(expected_price > 0 )','The expected price be strictly positive'),
-    # ]
     @api.onchange("garden")
     def _onchange_garden_area_orientation(self):
         if self.garden :
@@ -94,12 +90,13 @@ class EstateProperty(models.Model):
             if record.selling_price and record.selling_price <= 0:
                 raise ValidationError("Selling Price must be positive")
 
-    @api.constrains('expected_price', 'selling_price')
-    def _check_selling_prices(self):
+    @api.constrains("expected_price", "selling_price")
+    def _check_selling_price(self):
+        precision = 2
         for record in self:
-            precision = 2
-            if not float_is_zero(record.selling_price, precision_digits=precision) and float_compare(record.selling_price, 0.9 * record.expected_price, precision_digits=precision):
-                raise ValidationError("Selling price cannot be lower than 90% of expected price")
+            if not float_is_zero(record.selling_price, precision_digits=precision):
+                if float_compare(record.selling_price, 0.9 * record.expected_price, precision_digits=precision) < 0:
+                    raise ValidationError("Selling price cannot be lower than 90% of the expected price.")
 
     
             
