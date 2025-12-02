@@ -1,10 +1,12 @@
 from odoo import fields, models, api
 from datetime import timedelta
 from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "Estate Property Offer"
+    _order = "price desc"
 
     price = fields.Float()
     status = fields.Selection(
@@ -57,3 +59,10 @@ class EstatePropertyOffer(models.Model):
 
     # buyer_id = fields.Many2one("res.partner", string="Buyer", index=True, copy=False)
     # tag_ids = fields.Many2many("estate.property.tag", string="Property Tag")
+
+    @api.constrains('price')
+    def _check_offer_prices_positive(self):
+        for record in self:
+            if record.price <= 0:
+                raise ValidationError("Offer Price must be strictly positive")
+            
