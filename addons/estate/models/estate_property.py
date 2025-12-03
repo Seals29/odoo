@@ -76,7 +76,10 @@ class EstateProperty(models.Model):
                 record.best_price = 0.0
 
     def action_mark_sold_button(self):
-        self.state = "sold"
+        for record in self:
+            if record.state == "canceled":
+                raise UserError("Canceled property cannot be sold.")
+            record.state = "sold"
         return True
     def action_mark_cancel_button(self):
         self.state = "canceled"
