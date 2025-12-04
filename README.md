@@ -116,6 +116,6 @@ module
 - Kanban View
 ---
 ## Chapter 15: The final word
-
+- Refactoring Code
 
 ---
