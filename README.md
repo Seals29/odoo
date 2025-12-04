@@ -85,29 +85,37 @@ module
 ## Chapter 8: Computed Fields And Onchanges
 - Computed Fields  
 - On Changes 
-
+---
 ## Chapter 9: Ready For Some Action?
 - Object Type
 - Action Type
 
+---
 ## Chapter 10: Constraints
 - SQL Constraints
 - Python Constraints
 
+---
 ## Chapter 11: Add The Sprinkles
 - Inline Views
 - Widgets
 - List Order: Model, View, Manual
 - Attributes and Options: Form, List, Search
 - Stat Buttons / Smart Button
+---
 ## Chapter 12: Inheritance
 - Python Inheritance
 - Model Inheritance
 - View Inheritance
-
+---
 ## Chapter 13: Interact With Other Modules
 - Link Module
 - Invoice Creation Between Estate Property Module and Invoice Module
+---
 ## Chapter 14: A Brief History Of QWeb
 - Kanban View
+---
 ## Chapter 15: The final word
+
+
+---

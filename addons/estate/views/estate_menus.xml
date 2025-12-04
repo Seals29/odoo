@@ -1,14 +1,42 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-  <menuitem id="estate_property_menu" name="Estate">  <!-- Menu Title -->
-        <menuitem id="estate_property_first_level_menu" name="Advertisements"> <!-- Sub Menu Title -->
-            <menuitem id="estate_property_menu_action" action="estate_property_action" name="Properties"  />
-        </menuitem>
-        <menuitem id="estate_property_settings_menu" name="Settings"> <!-- Sub Menu Title -->
-            <menuitem id="estate_property_type_menu_action" action="estate_property_type_action" name="Property Types"  />
-            <menuitem id="estate_property_tag_menu_action" action="estate_property_tag_action" name="Property Tags"  />
-        </menuitem>
-    </menuitem>
+    <!-- Root -->
+    <menuitem 
+        id="estate_property_menu" 
+        name="Estate"/>  <!-- Menu Title -->
+    <!-- First Level Advertisements -->
+    <menuitem 
+        id="estate_property_first_level_menu" 
+        name="Advertisements" 
+        parent="estate_property_menu"
+        sequence="2"/> <!-- Sub Menu Title -->
+    <!-- First Level Action -->
+    <menuitem 
+        id="estate_property_menu_action" 
+        action="estate_property_action" 
+        name="Properties" 
+        parent="estate_property_first_level_menu" />
+
+    <!-- First Level Settings -->
+    <menuitem  
+        id="estate_property_settings_menu" 
+        name="Settings" 
+        parent="estate_property_menu"
+        sequence="2"
+        /> <!-- Sub Menu Title -->
+    <!-- First Level Settings Action -->
+    <menuitem 
+        id="estate_property_type_menu_action" 
+        action="estate_property_type_action" 
+        name="Property Types" 
+        parent= "estate_property_settings_menu"
+        sequence="1"  />
+    <menuitem 
+        id="estate_property_tag_menu_action" 
+        action="estate_property_tag_action" 
+        name="Property Tags" 
+        parent="estate_property_settings_menu"
+        sequence="2"  />
 
 
 </odoo>

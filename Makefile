@@ -31,7 +31,7 @@ logsdb:
 	$(DOCKER) logs odoo_postgres
 
 define upgrade_addon
-	$(DOCKER) exec -it $(CONTAINER_ODOO) odoo --db_host=$(CONTAINER_DB_2) -d $(WEB_DB_NAME) -r $(CONTAINER_ODOO) -w $(CONTAINER_ODOO) -u $(1) 
+	$(DOCKER) exec -it $(CONTAINER_ODOO) odoo --db_host=$(CONTAINER_DB_2) -d $(WEB_DB_NAME) -r $(CONTAINER_ODOO) -w $(CONTAINER_ODOO) -u $(1)  --dev xml
 endef
 addon: restart
 	$(call upgrade_addon,$(word 2, $(MAKECMDGOALS)))
